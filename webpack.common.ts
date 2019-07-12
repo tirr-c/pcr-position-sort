@@ -19,8 +19,8 @@ const config: webpack.Configuration = {
                 exclude: /node_modules/,
                 use: [
                     'babel-loader',
-                    'ts-loader',
                     'astroturf/loader',
+                    'ts-loader',
                 ],
             },
             {
@@ -67,7 +67,14 @@ export function makeCssConfig(isProduction: boolean) {
         test: /\.css$/,
         use: [
             isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-            'astroturf/css-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    importLoaders: 1,
+                },
+            },
+            'postcss-loader',
         ],
     };
 }

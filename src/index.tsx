@@ -1,14 +1,9 @@
-import { css } from 'astroturf';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const styles = css`
-    .centered {
-        text-align: center;
-    }
-`;
+import App from './App';
 
 ReactDOM.render(
-  <div className={styles.centered}>Hello, world!</div>,
-  document.getElementById('app'),
+    <App />,
+    document.getElementById('app'),
 );
