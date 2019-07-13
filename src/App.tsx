@@ -25,6 +25,7 @@ const BoardWrapper = styled('div')`
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 96px;
 
     > * + * {
         margin-left: 8px;
