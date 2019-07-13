@@ -5,14 +5,15 @@ import { SortableContainer } from 'react-sortable-hoc';
 import Unit from './Unit';
 
 interface Props {
+    className?: string;
     units: string[];
 }
 
 const HorizontalScroll = styled('div')`
     user-select: none;
+    display: inline-block;
     overflow: auto;
-    width: 80%;
-    margin: 0 auto;
+    max-width: 80%;
 `;
 
 const FlexDiv = styled('div')`
@@ -20,9 +21,9 @@ const FlexDiv = styled('div')`
 `;
 
 function Board(props: Props) {
-    const { units } = props;
+    const { className, units } = props;
     return (
-        <HorizontalScroll>
+        <HorizontalScroll className={className}>
             <FlexDiv style={{ width: `${104 * units.length}px` }}>
                 {units.map((unitId, idx) => <Unit key={unitId} id={unitId} index={idx} />)}
             </FlexDiv>
