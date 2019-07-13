@@ -1,7 +1,7 @@
 {
-  "name": "webpack-template",
-  "version": "0.0.0",
-  "repository": "https://github.com/tirr-c/webpack-template.git",
+  "name": "pcr-position-sort",
+  "version": "0.1.0",
+  "repository": "https://github.com/tirr-c/pcr-position-sort.git",
   "author": "Wonwoo Choi <chwo9843@gmail.com>",
   "license": "MIT",
   "private": true,

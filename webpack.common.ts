@@ -39,8 +39,8 @@ const config: webpack.Configuration = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
-            title: 'Template by tirr-c',
-            description: 'Placeholder description.',
+            title: 'Party Sorted',
+            description: '파티를 위치 순서대로 나열해 보세요.',
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
             },
