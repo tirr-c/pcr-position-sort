@@ -44,7 +44,7 @@ function App() {
         <BodyWrapper>
             <h2>Party Sorted</h2>
             <p>
-                드래그해서 파티 멤버를 순서대로 나열해 보세요.
+                드래그해서 캐릭터들을 위치 순서대로 나열해 보세요.
             </p>
             <BoardWrapper>
                 <span>뒤</span>

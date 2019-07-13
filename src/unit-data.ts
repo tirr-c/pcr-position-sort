@@ -1,4 +1,4 @@
-import rawUnitData from './units.json';
+import rawUnfilteredUnitData from './units.json';
 
 function random(maxExclusive: number): number {
     const limit = (65536 / maxExclusive | 0) * maxExclusive;
@@ -33,6 +33,8 @@ export interface Unit {
     pos: number;
 }
 
+const excludedUnits = new Set(['105401', '107501', '107601']);
+export const rawUnitData = rawUnfilteredUnitData.filter(({ id }) => !excludedUnits.has(id));
 export const unitData: Map<string, Unit> = new Map(rawUnitData.map(unit => [unit.id, unit]));
 const sampleParties = [
     ['100601', '100701', '102201', '103101', '104401'], // 악마왕국군
@@ -52,6 +54,9 @@ export function sampleUnits(n: number): string[] {
 }
 
 export function getRandomExample(): string[] {
-    const idx = random(sampleParties.length);
+    const idx = random(sampleParties.length * 3);
+    if (idx >= sampleParties.length) {
+        return sample(rawUnitData, 4 + random(4)).map(({ id }) => id);
+    }
     return shuffle(sampleParties[idx]);
 }
