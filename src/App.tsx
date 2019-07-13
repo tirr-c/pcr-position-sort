@@ -12,7 +12,7 @@ const BodyWrapper = styled('div')`
     align-items: center;
 
     > * {
-        flex: 0;
+        flex: 0 0 auto;
     }
 `;
 
@@ -25,7 +25,6 @@ const BoardWrapper = styled('div')`
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 96px;
 
     > * + * {
         margin-left: 8px;
