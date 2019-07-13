@@ -1,0 +1,34 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+
+- script: curl -o- -L https://yarnpkg.com/install.sh | bash
+  displayName: 'Install yarn'
+
+- script: yarn
+  displayName: 'Install dependencies'
+
+- script: yarn build webpack.prod.ts
+  displayName: 'Run webpack'
+
+- task: S3Upload@1
+  condition: eq(variables['build.sourceBranch'], 'refs/heads/master')
+  inputs:
+    awsCredentials: 'azure-pipelines-pcr'
+    regionName: 'us-east-1'
+    bucketName: 'pcr.tirr.dev'
+    sourceFolder: 'dist'
+    globExpressions: |
+      **
+      !**/*.map
+    targetFolder: 'sorted'
+    filesAcl: 'public-read'
+  displayName: 'Upload to S3'
