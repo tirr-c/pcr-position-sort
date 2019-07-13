@@ -16,6 +16,7 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
+    "resolveJsonModule": true,
     "jsx": "preserve",
     "sourceMap": true
   },
